@@ -17,7 +17,7 @@ public class CustomListTest {
     private CustomList list;
     /**
      * create a mocklist for my citylist
-     * @return
+     * @return mocklist of type Arraylist
      */
     public CustomList MockCityList(){
         list = new CustomList(null,new ArrayList<>());
@@ -27,8 +27,7 @@ public class CustomListTest {
     /**
      * get the size of the list
      * increase the list by adding a new city
-     * check if our current size matches the initial size
-     plus one
+     * check if our current size matches the initial size plus one
      */
     @Test
     public void addCityTest(){
@@ -38,7 +37,13 @@ public class CustomListTest {
         assertEquals(list.getCount(),listSize + 1);
     }
 
-
+    /**
+     * This checks if list is initially empty
+     * Then adds a city to list
+     * check if new added city exists in list
+     * (extensive test) declares city_2 but not added to list
+     * checks if city exists in list
+     */
     @Test
     public void hasCityTest(){
         list = MockCityList();
@@ -46,13 +51,22 @@ public class CustomListTest {
 
         City city = new City("Regina", "Saskatchewan");
         list.addCity(city);
-
         assertTrue(list.hasCity(city));
 
+        //only declared city_2
+        // not added to list so hasCity should return false
+        // city does not exist in list
         City city_2 = new City("Calgary", "Alberta");
         assertFalse(list.hasCity(city_2));
     }
 
+    /**
+     * This checks if list is initially empty
+     * Then adds a city to list
+     * check if new added city exists in list
+     * deletes city from list
+     * check if city successfully deleted
+     */
     @Test
     public void deleteCityTest(){
         list = MockCityList();
@@ -71,6 +85,12 @@ public class CustomListTest {
 
     }
 
+    /**
+     * This checks if list is initially empty
+     * Then adds a city to list
+     * check if new added city exists in list
+     * checks if number of cities in list matches our expected number = 1
+     */
     @Test
     void testCountCities(){
         list = MockCityList();
