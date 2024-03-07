@@ -47,13 +47,7 @@ public class CustomListTest {
         list.add(city);
 
         assertTrue(list.hasCity(city));
-//        try {
-//            list.delete(city);
-//        }
-//        catch (Exception e){
-//            e.printStackTrace();
-//        }
-//
+
         City city_2 = new City("Calgary", "Alberta");
         assertFalse(list.hasCity(city_2));
     }
