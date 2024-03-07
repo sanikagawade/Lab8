@@ -57,14 +57,12 @@ public class CustomListTest {
         assertEquals(1, list.getCount());
 
         City city = new City("Estevan", "SK");
-        list.delete(city);
-
+        try{
+            list.delete(city);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         assertEquals(0, list.getCount());
 
-//        try{
-//            list.delete(city);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
     }
 }
